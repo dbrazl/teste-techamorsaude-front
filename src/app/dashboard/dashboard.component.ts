@@ -1,15 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
-
-interface IUser {
-  id: string;
-  company_name: string;
-  fantasy_name: string;
-  active: number;
-  cnpj: number;
-  local: number;
-  opening_date: string;
-}
+import { IUser } from '../../dto/user-dto';
 
 @Component({
   selector: 'app-dashboard',

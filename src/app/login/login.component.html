@@ -1,20 +1,29 @@
 <div class="content">
-  <form action="POST" class="login-form">
+  <form class="login-form" #myform="ngForm" (ngSubmit)="onSubmit(myform)">
     <h1 class="login-title">Login</h1>
     <div class="login-form-inputs">
       <div class="login-input-scope">
-        <input type="text" class="login-input" placeholder="CNPJ" />
+        <input type="number" class="login-input" name="cnpj" placeholder="CNPJ" ngModel />
         @if (error) {
-          <span class="login-input-error">Um erro ocorreu</span>
+          @for (error of errorCNPJ; track error) {
+            <span class="login-input-error">{{error}}</span>
+          }
         }
       </div>
       <div class="login-input-scope">
-        <input type="password" class="login-input" placeholder="Senha" />
+        <input type="password" class="login-input" name="password" placeholder="Senha" ngModel />
         @if (error) {
-          <span class="login-input-error">Um erro ocorreu</span>
+          @for (error of errorPassword; track error) {
+            <span class="login-input-error">{{error}}</span>
+          }
         }
       </div>
     </div>
     <button type="submit" class="login-submit-button">Entrar</button>
+    @if (error) {
+      @for (error of otherErrors; track error) {
+        <span class="login-input-error" align="center">{{error}}</span>
+      }
+    }
   </form>
 </div>
