@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 
 @Component({
@@ -16,4 +16,27 @@ import { LoginComponent } from './login/login.component';
 })
 export class AppComponent {
   title = 'teste-techamorsaude-front';
+
+  router = inject(Router)
+
+  constructor() {
+    this.checkRoutes();
+  }
+
+  checkRoutes(): void {
+    this.router.events.subscribe((value) => {
+      if (value instanceof NavigationEnd) {
+        const token = localStorage.getItem('token');
+        const { url } = value as NavigationEnd;
+
+        if (token && url === '/') {
+          this.router.navigateByUrl('/dashboard');
+        }
+
+        if (!token && url === '/dashboard') {
+          this.router.navigateByUrl('/');
+        }
+      }
+    })
+  }
 }

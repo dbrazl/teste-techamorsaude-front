@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { IUser } from '../../dto/user-dto';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,6 +14,7 @@ export class DashboardComponent {
   users: IUser[] = [];
 
   http = inject(HttpClient);
+  router = inject(Router);
 
   constructor() {
     this.findAllUsers();
@@ -23,5 +25,10 @@ export class DashboardComponent {
       .subscribe((data: IUser[]) => {
         this.users = data;
       });
+  }
+
+  logout(): void {
+    localStorage.removeItem('token');
+    this.router.navigateByUrl('/');
   }
 }
