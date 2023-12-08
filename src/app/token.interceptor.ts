@@ -1,16 +1,10 @@
-import { HttpClient, HttpInterceptorFn } from '@angular/common/http';
-import { Inject } from '@angular/core';
+import { HttpInterceptorFn } from '@angular/common/http';
+import { inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { jwtDecode } from 'jwt-decode';
 
 export const tokenInterceptor: HttpInterceptorFn = (req, next) => {
-  let router = Inject(Router);
-
-  try {
-
-  } catch (error) {
-
-  }
+  let router: Router = inject(Router);
 
   const token = localStorage.getItem('token');
 
