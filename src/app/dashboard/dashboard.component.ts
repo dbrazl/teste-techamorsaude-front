@@ -1,8 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 
-interface IFindUser {
-  cnpj: string;
+interface IUser {
+  id: string;
+  company_name: string;
+  fantasy_name: string;
+  active: number;
+  cnpj: number;
+  local: number;
+  opening_date: string;
 }
 
 @Component({
@@ -13,18 +19,18 @@ interface IFindUser {
   styleUrl: './dashboard.component.scss'
 })
 export class DashboardComponent {
-  user = null;
+  users: IUser[] = [];
 
   http = inject(HttpClient);
 
   constructor() {
-    this.findUser({ cnpj: '12345678912345'});
+    this.findAllUsers();
   }
 
-  findUser({ cnpj }: IFindUser): void {
-    this.http.get(`http://localhost:3000/users/${cnpj}`)
-      .subscribe((data: any) => {
-        this.user = data;
+  findAllUsers(): void {
+    this.http.get<IUser[]>('http://localhost:3000/users')
+      .subscribe((data: IUser[]) => {
+        this.users = data;
       });
   }
 }
