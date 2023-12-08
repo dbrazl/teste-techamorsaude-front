@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { LoginComponent } from './login/login.component';
+import { privateRoutes, publicRoutes } from './app.routes';
 
 @Component({
   selector: 'app-root',
@@ -29,11 +30,11 @@ export class AppComponent {
         const token = localStorage.getItem('token');
         const { url } = value as NavigationEnd;
 
-        if (token && url === '/') {
+        if (token && publicRoutes.includes(url)) {
           this.router.navigateByUrl('/dashboard');
         }
 
-        if (!token && url === '/dashboard') {
+        if (!token && privateRoutes.includes(url)) {
           this.router.navigateByUrl('/');
         }
       }

@@ -1,0 +1,70 @@
+<div class="content">
+  <form class="sign-up-form" #myform="ngForm" (ngSubmit)="onSubmit(myform)">
+    <h1 class="sign-up-title">Registra-se</h1>
+    <div class="sign-up-form-inputs">
+      <div class="sign-up-input-scope">
+        <input type="text" class="sign-up-input" name="company_name" placeholder="Nome da empresa" ngModel />
+        @if (error) {
+          @for (error of errorCompanyName; track error) {
+            <span class="sign-up-input-error">{{error}}</span>
+          }
+        }
+      </div>
+      <div class="sign-up-input-scope">
+        <input type="text" class="sign-up-input" name="fantasy_name" placeholder="Nome fantasia" ngModel />
+        @if (error) {
+          @for (error of errorFantasyName; track error) {
+            <span class="sign-up-input-error">{{error}}</span>
+          }
+        }
+      </div>
+      <div class="sign-up-input-scope">
+        <input type="number" class="sign-up-input" name="cnpj" placeholder="CNPJ" maxlength="14" ngModel />
+        @if (error) {
+          @for (error of errorCNPJ; track error) {
+            <span class="sign-up-input-error">{{error}}</span>
+          }
+        }
+      </div>
+      <div class="sign-up-input-scope">
+        <span>A empresa é:</span>
+        <div class="sign-up-radio-input">
+          <input type="radio" name="local" value="true" id="local-true" ngModel />
+          <label for="local-true">Local</label>
+        </div>
+
+        <div class="sign-up-radio-input">
+          <input type="radio" name="local" value="false" id="local-false" ngModel />
+          <label for="local-false">Estrangeira</label>
+        </div>
+        @if (error) {
+          @for (error of errorLocal; track error) {
+            <span class="sign-up-input-error">{{error}}</span>
+          }
+        }
+      </div>
+      <div class="sign-up-input-scope">
+        <input type="datetime-local" class="sign-up-input-date" name="opening_date" ngModel />
+        @if (error) {
+          @for (error of errorOpeningDate; track error) {
+            <span class="sign-up-input-error">{{error}}</span>
+          }
+        }
+      </div>
+      <div class="sign-up-input-scope">
+        <input type="password" class="sign-up-input" name="password" placeholder="Senha" ngModel />
+        @if (error) {
+          @for (error of errorPassword; track error) {
+            <span class="sign-up-input-error">{{error}}</span>
+          }
+        }
+      </div>
+    </div>
+    <button type="submit" class="sign-up-submit-button">Cadastrar</button>
+    @if (error) {
+      @for (error of otherErrors; track error) {
+        <span class="sign-up-input-error" align="center">{{error}}</span>
+      }
+    }
+  </form>
+</div>

@@ -3,7 +3,7 @@
     <h1 class="login-title">Login</h1>
     <div class="login-form-inputs">
       <div class="login-input-scope">
-        <input type="number" class="login-input" name="cnpj" placeholder="CNPJ" ngModel />
+        <input type="number" class="login-input" name="cnpj" placeholder="CNPJ" maxlength="14" ngModel />
         @if (error) {
           @for (error of errorCNPJ; track error) {
             <span class="login-input-error">{{error}}</span>
@@ -25,5 +25,6 @@
         <span class="login-input-error" align="center">{{error}}</span>
       }
     }
+    <a class="login-sign-up-link" (click)="goToSignUp()">Não tem uma conta? <u>Cadastre-se</u></a>
   </form>
 </div>

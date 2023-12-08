@@ -1,9 +1,8 @@
-export interface IUser {
-  id: string;
+export interface CreateUserDto {
   company_name: string;
   fantasy_name: string;
-  active: number;
-  cnpj: string;
+  cnpj: number;
   local: number;
   opening_date: string;
+  active: number;
 }

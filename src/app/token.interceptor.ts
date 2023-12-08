@@ -2,6 +2,7 @@ import { HttpInterceptorFn } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { jwtDecode } from 'jwt-decode';
+import { privateRoutes, publicRoutes } from './app.routes';
 
 export const tokenInterceptor: HttpInterceptorFn = (req, next) => {
   let router: Router = inject(Router);
@@ -17,18 +18,18 @@ export const tokenInterceptor: HttpInterceptorFn = (req, next) => {
         false;
 
       if (isExpired) {
-        console.log('Token expired');
+        // console.log('Token expired');
         localStorage.removeItem('token');
         router.navigateByUrl('/');
       }
     } catch (error) {
-      console.log('Invalid token');
+      // console.log('Invalid token');
       localStorage.removeItem('token');
       router.navigateByUrl('/');
     }
 
-  } else {
-    console.log('No token');
+  } else if(privateRoutes.includes(router.url)) {
+    // console.log('No token');
     router.navigateByUrl('/');
   }
 
