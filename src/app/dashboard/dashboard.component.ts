@@ -21,7 +21,13 @@ export class DashboardComponent {
   }
 
   findAllUsers(): void {
-    this.http.get<IUser[]>('http://localhost:3000/users')
+    const token = localStorage.getItem('token');
+
+    this.http.get<IUser[]>('http://localhost:3000/users', {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    })
       .subscribe((data: IUser[]) => {
         this.users = data;
       });

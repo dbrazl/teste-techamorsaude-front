@@ -1,3 +1,37 @@
-<p>dashboard works!</p>
+<div class="dashboard-page">
+  <header class="dashboard-header">
+    <button class="dashboard-logout-button" (click)="logout()">Logout</button>
+  </header>
 
-<button class="dashboard-logout-button" (click)="logout()">Logout</button>
+  <aside class="dashboard-menu-desktop">
+    <img src="https://www.mintformations.co.uk/blog/wp-content/uploads/2020/05/shutterstock_583717939.jpg" alt="Logo da empresa" class="dashboard-company-logo">
+    <nav class="dashboard-nav">
+      <ul class="dashboard-link-list">
+        <li class="dashboard-link selected">List de usuários</li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="dashboard-content">
+    <h1 class="dashboard-title">Usuários</h1>
+      <ul class="dashboard-user-list">
+        @for(user of users; track user.id) {
+          <li class="dashboard-user">
+            <span>
+              <strong>Nome da Empresa:</strong>
+              {{user.company_name}}
+            </span>
+            <span>
+              <strong>Nome Fantasia:</strong>
+              <span>{{user.fantasy_name}}</span>
+            </span>
+          </li>
+        } @empty {
+          <span class="dashboard-empty-list">
+            Não há usuários registrados<br/>
+            Tente novamente mais tarde
+          </span>
+        }
+      </ul>
+  </main>
+</div>
