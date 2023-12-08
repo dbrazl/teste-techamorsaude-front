@@ -1,27 +1,67 @@
-# TesteTechamorsaudeFront
+<p align="center">
+  <a href="http://nestjs.com/" target="blank"><img src="https://www.amorsaude.com.br/wp-content/themes/amorsaude/assets/images/amorsaude-logo.svg" width="200" alt="Nest Logo" /></a>
+</p>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.6.
+  <p align="center">Levar um atendimento médico e odontológico de qualidade e humanizado à população brasileira.</p>
+<p align="center">
+  <a href="" target="_blank"><img src="https://img.shields.io/badge/node-v18.13.0+-blue" alt="NPM Version" /></a>
+  <a href="" target="_blank"><img src="https://img.shields.io/badge/license-MIT-yellow" alt="Package License" /></a>
+  <a href="" target="_blank"><img src="https://img.shields.io/badge/coverage-0%25-green5" alt="Coverage" /></a>
+  <a href="" target="_blank"><img src="https://img.shields.io/badge/backers-1-red" alt="Backers on Open Collective" /></a>
+</p>
 
-## Development server
+## Descrição
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Esse é o front-end desenvolvido para o teste prático da Amor Saúde.
+</br>
 
-## Code scaffolding
+**Imagem 1 - Versão web**
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+<p align="center">
+  <img src="https://amor-saude.s3.amazonaws.com/Macbook+Pro.png" width="500" alt="Versão app" />
+</p>
 
-## Build
+Fonte: Autor
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+</br>
 
-## Running unit tests
+**Imagem 2 - Versão app**
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+<p align="center">
+  <img src="https://amor-saude.s3.amazonaws.com/iPhone.png" width="500" alt="Versão app" />
+</p>
 
-## Running end-to-end tests
+Fonte: Autor
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+</br>
 
-## Further help
+## Tecnologias
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+O projeto foi desenvolvido com o framework Angular versão 17.
+
+<p align="center">
+  <a href="https://nestjs.com/">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/2048px-Angular_full_color_logo.svg.png" width="70" alt="Nest.js logo">
+  </a>
+</p>
+
+## Instalação
+
+```bash
+$ yarn
+```
+
+## Rodar o app
+
+```bash
+# development
+$ yarn start
+```
+
+## Testes
+
+Não foram efetuados nenhum tipo de teste nessa aplicação.
+
+## Mantenha contato
+
+- Autor - [Daniel Braz](https://www.linkedin.com/in/dbrazl/)
