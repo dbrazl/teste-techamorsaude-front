@@ -6,7 +6,11 @@ import { LoginComponent } from './login/login.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, LoginComponent, RouterOutlet],
+  imports: [
+    CommonModule,
+    LoginComponent,
+    RouterOutlet,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
